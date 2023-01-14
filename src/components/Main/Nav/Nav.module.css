@@ -1,0 +1,46 @@
+.menu {
+    width: 278px;
+    padding: 24px;
+}
+
+.list {
+
+}
+
+
+.item {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.item:first-child {
+    margin-top: 0;
+}
+
+.item:last-child {
+    margin-bottom: 0;
+}
+
+.item:hover {
+    padding-left: 10px;
+    background-color: #fff;
+    border-radius: 40px;
+}
+
+.link {
+    height: 100%;
+    width: 100%;
+}
+
+.svg_wr {
+    height: 24px;
+    margin-right: 24px;
+}
+
+
+

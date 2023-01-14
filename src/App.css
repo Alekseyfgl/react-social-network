@@ -1,38 +1,104 @@
+
+* {
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:focus, :active {
+    outline: none;
+}
+
+a:focus, a:active {
+    outline: none;
+}
+
+nav, footer, header, aside {
+    display: block;
+}
+
+input::-ms-clear {
+    display: none;
+}
+
+input:focus {
+    box-shadow: 0 0 15px rgb(81 203 219);
+    transition: 0.2s;
+}
+
+button {
+    cursor: pointer;
+}
+
+button::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+}
+
+a, a :visited {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+ul li {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1, h2, h3, h4, h5, h5, h6 {
+    font-size: inherit;
+    font-weight: 400;
+}
+
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button,
+input::-webkit-search-results-button,
+input::-webkit-search-results-decoration {
+    display: none;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url("./fonts/poppins-regular.woff2") format("woff2"),
+    url("./fonts/poppins-regular.woff") format("woff");
+}
+
 .App {
-  text-align: center;
+    font-family: Poppins, sans-serif;
+    font-size: 18px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+
+svg {
+    height: 100%;
+    cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.main_wr {
+    max-width: 1200px;
+    min-width: 320px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 0 auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.block_light-blue {
+    background-color: #EDF4FF;
+    border: 1px solid #B2EAEE;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
 }
