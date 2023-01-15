@@ -3,15 +3,11 @@
     padding: 24px;
 }
 
-.list {
-
-}
-
 
 .item {
+    display: flex;
     padding-top: 4px;
     padding-bottom: 4px;
-    display: flex;
     margin-top: 12px;
     margin-bottom: 12px;
     cursor: pointer;
@@ -33,6 +29,7 @@
 }
 
 .link {
+    display: flex;
     height: 100%;
     width: 100%;
 }
