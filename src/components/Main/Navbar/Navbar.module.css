@@ -1,17 +1,6 @@
-.menu {
+.navbar {
     width: 278px;
     padding: 24px;
-}
-
-
-.item {
-    display: flex;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    transition: 0.5s;
 }
 
 .item:first-child {
@@ -22,16 +11,16 @@
     margin-bottom: 0;
 }
 
-.item:hover {
-    padding-left: 10px;
-    background-color: #aeaeae;
-    border-radius: 40px;
-}
-
 .link {
     display: flex;
     height: 100%;
     width: 100%;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: 0.5s;
 }
 
 .svg_wr {
@@ -39,5 +28,16 @@
     margin-right: 24px;
 }
 
+.link:hover {
+    padding-left: 20px;
+    background-color: #aeaeae;
+    border-radius: 40px;
+}
+
+.active {
+    padding-left: 20px;
+    background-color: #aeaeae;
+    border-radius: 40px;
+}
 
 
