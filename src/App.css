@@ -79,6 +79,7 @@ input::-webkit-search-results-decoration {
 .App {
     font-family: Poppins, sans-serif;
     font-size: 18px;
+    background-color: #F5F9FF;
 }
 
 
@@ -97,8 +98,8 @@ svg {
 
 
 .block_light-blue {
-    background-color: #EDF4FF;
-    border: 1px solid #B2EAEE;
+    background-color: #FAFCFF;
+    border: 1px solid #93B1ED;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 20px;
 }

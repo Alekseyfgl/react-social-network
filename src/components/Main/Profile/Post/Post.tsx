@@ -4,18 +4,16 @@ import { PostSvgSelector } from '../../../SvgSelector/PostSvgSelector';
 export const Post = () => {
     return (
         <article className={`${s.post} block_light-blue pd`}>
-            <div className={s.setting}>
-                ...
-                <div className="menu">
-                    <button>delete</button>
-                    <button>change</button>
-                    <button>copy link</button>
-                </div>
-            </div>
+            <div className={s.setting}>...</div>
 
+            {/*<div className={`${s.menu}`}>*/}
+            {/*    <button className={s.item}>delete</button>*/}
+            {/*    <button className={s.item}>change</button>*/}
+            {/*    <button className={s.item}>copy link</button>*/}
+            {/*</div>*/}
             <div className={`${s.author} ${s.pd}`}>
                 <div className={s.wr}>
-                    <img className={'img_setting'} src="https://merk.anwb.nl/m/c40483f373c68f06/Header_3000-kenia_rift-valley_algemeen_rondreis-afrika_olifant_gras_shutterstock.jpg" alt="author" />
+                    <img className={`${s.author_img} img_setting`} src="https://merk.anwb.nl/m/c40483f373c68f06/Header_3000-kenia_rift-valley_algemeen_rondreis-afrika_olifant_gras_shutterstock.jpg" alt="author" />
                 </div>
                 <div className="autor_info">
                     <p className="author_name">Katie Sims</p>

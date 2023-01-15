@@ -11,10 +11,37 @@
 
 /*setting menu*/
 .setting {
+    text-align: right;
     position: absolute;
     font-size: 42px;
     line-height: 0.3;
+    right: 24px;
+    top: 24px;
+    /*transition: 0.5s;*/
 }
+
+
+/*.setting:hover ~ .menu button {*/
+/*    transition: 0.5s;*/
+/*    background-color: #51cbdb;*/
+/*}*/
+
+/*.menu {*/
+/*    position: absolute;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    width: 160px;*/
+/*    right: 0;*/
+/*    top: 60px;*/
+/*    !*transition: 0.5s;*!*/
+/*}*/
+
+/*.item {*/
+/*    padding-top: 6px;*/
+/*    padding-bottom: 6px;*/
+/*    font-size: 18px;*/
+/*    background-color: red;*/
+/*}*/
 
 .author {
     display: flex;
@@ -26,8 +53,12 @@
     height: 64px;
     width: 64px;
     margin-right: 24px;
-    border-radius: 50px;
+    border-radius: 50%;
     border: 2px solid #E8EEFF;
+}
+
+.author_img {
+    border-radius: 50%;
 }
 
 .date {
