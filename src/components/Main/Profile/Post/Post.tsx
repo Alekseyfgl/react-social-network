@@ -1,5 +1,5 @@
 import s from './Post.module.css';
-import { PostSvgSelector } from '../../../SvgSelector/PostSvgSelector';
+import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
 
 export const Post = () => {
     return (
@@ -25,10 +25,10 @@ export const Post = () => {
             <img className={`${s.img} img_setting`} src="https://cdn.erlebe.de/wp-content/uploads/2020/08/EFR_Beitrag_Afrika.jpg" alt="post" />
             <div className={s.actions}>
                 <button className={s.btn_like}>
-                    <PostSvgSelector id={'like'} />
+                    <MainSvgSelector id={'like'} />
                 </button>
                 <button className={s.btn_comment}>
-                    <PostSvgSelector id={'comment'} />
+                    <MainSvgSelector id={'comment'} />
                 </button>
             </div>
         </article>
