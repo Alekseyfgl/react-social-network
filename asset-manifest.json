@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-social-network/static/css/main.d7cb3617.css",
-    "main.js": "/react-social-network/static/js/main.6823e88d.js",
+    "main.css": "/react-social-network/static/css/main.2be06167.css",
+    "main.js": "/react-social-network/static/js/main.48957ffb.js",
     "static/media/poppins-regular.woff": "/react-social-network/static/media/poppins-regular.9e9960bf2badef861b0a.woff",
     "static/media/poppins-regular.woff2": "/react-social-network/static/media/poppins-regular.9641d5d087bc9e626d4c.woff2",
     "index.html": "/react-social-network/index.html",
-    "main.d7cb3617.css.map": "/react-social-network/static/css/main.d7cb3617.css.map",
-    "main.6823e88d.js.map": "/react-social-network/static/js/main.6823e88d.js.map"
+    "main.2be06167.css.map": "/react-social-network/static/css/main.2be06167.css.map",
+    "main.48957ffb.js.map": "/react-social-network/static/js/main.48957ffb.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7cb3617.css",
-    "static/js/main.6823e88d.js"
+    "static/css/main.2be06167.css",
+    "static/js/main.48957ffb.js"
   ]
 }
