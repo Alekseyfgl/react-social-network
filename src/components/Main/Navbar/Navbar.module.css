@@ -1,5 +1,5 @@
 .navbar {
-    width: 278px;
+    flex: 0 0 278px;
     padding: 24px;
 }
 
@@ -29,13 +29,13 @@
 }
 
 .link:hover {
-    padding-left: 20px;
+    padding-left: 10px;
     background-color: #aeaeae;
     border-radius: 40px;
 }
 
 .active {
-    padding-left: 20px;
+    padding-left: 10px;
     background-color: #aeaeae;
     border-radius: 40px;
 }

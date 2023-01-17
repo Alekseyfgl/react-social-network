@@ -1,6 +1,5 @@
 import { Navbar } from './Navbar/Navbar';
 import s from './Main.module.css';
-import { Aside } from './Aside/Aside';
 import { Messages } from './Messages/Messages';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { Profile } from './Profile/Profile';
@@ -22,7 +21,6 @@ export const Main = () => {
                 <Route path={'/settings'} component={Settings} />
                 <Route path={'/developers'} component={Developers} />
                 <Route path={'/technologies'} component={Technologies} />
-                <Aside />
             </main>
         </BrowserRouter>
     );

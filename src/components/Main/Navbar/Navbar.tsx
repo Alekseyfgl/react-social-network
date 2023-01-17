@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 export const Navbar = () => {
     return (
-        <div className={`${s.navbar} block_light-blue`}>
+        <div className={`${s.navbar} block_margin_right block_light-blue`}>
             <nav>
                 <NavLink activeClassName={s.active} to="/profile" className={s.link}>
                     <span className={s.svg_wr}>

@@ -1,0 +1,75 @@
+.dialog {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid #92B1ED;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dialog:first-child {
+    border-top: 1px solid #92B1ED;
+}
+
+.dialog:hover {
+    background: #E0EAFF;
+}
+
+.status {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 8px;
+    width: 8px;
+    background: #3BCB63;
+    border: 0.5px solid #FFFFFF;
+    border-radius: 50%;
+}
+
+.wr_img {
+    position: relative;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 130px 50px;
+    grid-template-rows: 18px 18px;
+    grid-row-gap: 6px;
+    align-items: center;
+}
+
+.name {
+    grid-column-start: 1;
+}
+
+.message {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    color: #67666A;
+    font-size: 12px;
+}
+
+.time {
+    grid-column-start: 2;
+    font-size: 10px;
+    color: #C0C2C8;
+}
+
+.notifications {
+    justify-self: end;
+    background: #E43939;
+    border-radius: 4px;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    color: #fff;
+    text-align: center;
+}

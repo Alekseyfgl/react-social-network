@@ -82,7 +82,7 @@ body {
 
 .App {
     font-family: Poppins, sans-serif;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 
@@ -107,8 +107,13 @@ svg {
     border-radius: 20px;
 }
 
-.img_setting {
+.block_margin_right {
+    margin-right: 24px;
+}
+
+img {
     height: 100%;
     width: 100%;
     object-fit: cover;
+    border-radius: 50%;
 }
