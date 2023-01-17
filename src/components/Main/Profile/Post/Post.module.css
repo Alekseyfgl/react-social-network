@@ -73,6 +73,7 @@
 .img {
     max-height: 325px;
     object-fit: cover;
+    border-radius: 0;
     margin-bottom: 12px;
 }
 

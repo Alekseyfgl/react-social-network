@@ -1,6 +1,7 @@
 import s from './Messages.module.css';
 import { MainSvgSelector } from '../../SvgSelector/MainSvgSelector';
 import { Dialog } from './Dialog/Dialog';
+import { Chat } from './Chat/Chat';
 
 export const Messages = () => {
     return (
@@ -23,7 +24,8 @@ export const Messages = () => {
                     <Dialog />
                 </ul>
             </div>
-            <div className={s.messages}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa, reiciendis.</div>
+
+            <Chat />
         </div>
     );
 };

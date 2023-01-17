@@ -117,3 +117,11 @@ img {
     object-fit: cover;
     border-radius: 50%;
 }
+
+.wr_img {
+    position: relative;
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    margin-right: 8px;
+}

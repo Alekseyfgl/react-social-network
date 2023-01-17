@@ -22,7 +22,7 @@ export const Post = () => {
             </div>
 
             <p className={`${s.text} ${s.pd}`}>My work day news from a phone call. One of my clients ...</p>
-            <img className={`${s.img} img_setting`} src="https://cdn.erlebe.de/wp-content/uploads/2020/08/EFR_Beitrag_Afrika.jpg" alt="post" />
+            <img className={`${s.img} `} src="https://cdn.erlebe.de/wp-content/uploads/2020/08/EFR_Beitrag_Afrika.jpg" alt="post" />
             <div className={s.actions}>
                 <button className={s.btn_like}>
                     <MainSvgSelector id={'like'} />
