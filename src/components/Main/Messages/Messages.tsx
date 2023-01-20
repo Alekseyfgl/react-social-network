@@ -1,7 +1,7 @@
 import s from './Messages.module.css';
 import { MainSvgSelector } from '../../SvgSelector/MainSvgSelector';
 import { Dialog } from './Dialog/Dialog';
-import { Chat } from './Chat/Chat';
+import { Message } from './Chat/Message';
 
 export const Messages = () => {
     return (
@@ -15,17 +15,16 @@ export const Messages = () => {
                     <input className={s.input} type="text" placeholder={'Search'} />
                 </form>
 
-                <ul>
-                    <Dialog />
-                    <Dialog />
-                    <Dialog />
-                    <Dialog />
-                    <Dialog />
-                    <Dialog />
-                </ul>
+                <div>
+                    <Dialog id={1} name={'Alex'} />
+                    <Dialog id={2} name={'Shasha'} />
+                    <Dialog id={3} name={'Dima'} />
+                </div>
             </div>
 
-            <Chat />
+            <Message message={'He alex'} />
+            {/*<Message message={'He Dimach'} />*/}
+            {/*<Message message={'He Shasha'} />*/}
         </div>
     );
 };

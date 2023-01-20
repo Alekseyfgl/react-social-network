@@ -1,8 +1,14 @@
 import s from './Dialog.module.css';
+import { NavLink } from 'react-router-dom';
 
-export const Dialog = () => {
+type DialogPropsType = {
+    id: number;
+    name: string;
+};
+export const Dialog = (props: DialogPropsType) => {
+    const path: string = `/messages/${props.id}`;
     return (
-        <li className={s.dialog}>
+        <NavLink to={path} className={s.dialog}>
             <div className={'wr_img'}>
                 <span className={s.status}></span>
                 <img
@@ -11,11 +17,11 @@ export const Dialog = () => {
                 />
             </div>
             <div className={s.container}>
-                <p className={s.name}>Kathy Pacheco</p>
+                <p className={s.name}>{props.name}</p>
                 <p className={s.message}>Hello! How are you?</p>
                 <span className={s.time}>02:00 am</span>
                 <span className={s.notifications}>1</span>
             </div>
-        </li>
+        </NavLink>
     );
 };

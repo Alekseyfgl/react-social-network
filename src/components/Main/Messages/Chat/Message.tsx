@@ -1,6 +1,10 @@
 import s from './Chat.module.css';
 
-export const Chat = () => {
+type ChatPropsType = {
+    message: string;
+};
+
+export const Message = (props: ChatPropsType) => {
     return (
         <div className={s.messages}>
             <div className={s.user}>
@@ -18,7 +22,7 @@ export const Chat = () => {
                     </div>
                 </div>
             </div>
-            div.chat
+            {props.message}
         </div>
     );
 };
