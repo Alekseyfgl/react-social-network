@@ -1,9 +1,22 @@
 import s from './Messages.module.css';
 import { MainSvgSelector } from '../../SvgSelector/MainSvgSelector';
 import { Dialog } from './Dialog/Dialog';
-import { Message } from './Chat/Message';
+import { Chat } from './Chat/Chat';
+
+type DialogsType = {
+    id: number;
+    user: string;
+};
 
 export const Messages = () => {
+    const dialogs: DialogsType[] = [
+        { id: 1, user: 'Alex' },
+        { id: 2, user: 'Dima' },
+        { id: 3, user: 'Adam' },
+    ];
+
+    const dialogsHTLM: JSX.Element[] = dialogs.map((d: DialogsType) => <Dialog id={d.id} name={d.user} key={d.id} />);
+
     return (
         <div className={`${s.block} block_light-blue`}>
             <div className={s.dialogs}>
@@ -15,16 +28,10 @@ export const Messages = () => {
                     <input className={s.input} type="text" placeholder={'Search'} />
                 </form>
 
-                <div>
-                    <Dialog id={1} name={'Alex'} />
-                    <Dialog id={2} name={'Shasha'} />
-                    <Dialog id={3} name={'Dima'} />
-                </div>
+                <div>{dialogsHTLM}</div>
             </div>
 
-            <Message message={'He alex'} />
-            {/*<Message message={'He Dimach'} />*/}
-            {/*<Message message={'He Shasha'} />*/}
+            <Chat message={'qwe qweqwe'} />
         </div>
     );
 };

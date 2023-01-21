@@ -1,6 +1,7 @@
 .navbar {
     flex: 0 0 278px;
     padding: 24px;
+    height: max-content;
 }
 
 .item:first-child {

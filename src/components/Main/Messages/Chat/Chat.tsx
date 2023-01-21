@@ -4,7 +4,7 @@ type ChatPropsType = {
     message: string;
 };
 
-export const Message = (props: ChatPropsType) => {
+export const Chat = (props: ChatPropsType) => {
     return (
         <div className={s.messages}>
             <div className={s.user}>
