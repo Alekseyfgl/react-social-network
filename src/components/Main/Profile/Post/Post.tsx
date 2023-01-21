@@ -1,11 +1,7 @@
 import s from './Post.module.css';
 import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
-import { AuthorType, PostType } from '../Profile';
 
-type PostPropsType = PostType & {
-    author: AuthorType;
-};
-export const Post = (props: PostPropsType) => {
+export const Post = (props: any) => {
     return (
         <article className={`${s.post} block_light-blue pd`}>
             <div className={s.setting}>...</div>

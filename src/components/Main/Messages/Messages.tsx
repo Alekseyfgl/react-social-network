@@ -3,19 +3,8 @@ import { MainSvgSelector } from '../../SvgSelector/MainSvgSelector';
 import { Dialog } from './Dialog/Dialog';
 import { Chat } from './Chat/Chat';
 
-type DialogsType = {
-    id: number;
-    user: string;
-};
-
-export const Messages = () => {
-    const dialogs: DialogsType[] = [
-        { id: 1, user: 'Alex' },
-        { id: 2, user: 'Dima' },
-        { id: 3, user: 'Adam' },
-    ];
-
-    const dialogsHTLM: JSX.Element[] = dialogs.map((d: DialogsType) => <Dialog id={d.id} name={d.user} key={d.id} />);
+export const Messages = (props: any) => {
+    const dialogsElements: JSX.Element[] = props.dialogs.map((d: any) => <Dialog id={d.id} name={d.user} key={d.id} />);
 
     return (
         <div className={`${s.block} block_light-blue`}>
@@ -28,7 +17,7 @@ export const Messages = () => {
                     <input className={s.input} type="text" placeholder={'Search'} />
                 </form>
 
-                <div>{dialogsHTLM}</div>
+                <div>{dialogsElements}</div>
             </div>
 
             <Chat message={'qwe qweqwe'} />
