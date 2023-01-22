@@ -27,7 +27,7 @@ input::-ms-clear {
     display: none;
 }
 
-input:focus {
+input:focus, textarea:focus {
     box-shadow: 0 0 15px rgb(81 203 219);
     transition: 0.2s;
 }
@@ -119,9 +119,11 @@ img {
 }
 
 .wr_img {
+    flex: 0 0 32px;
     position: relative;
     height: 32px;
     width: 32px;
     border-radius: 50%;
     margin-right: 8px;
 }
+

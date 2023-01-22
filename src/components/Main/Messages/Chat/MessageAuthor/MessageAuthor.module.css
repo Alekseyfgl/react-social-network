@@ -1,0 +1,45 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.date {
+    font-size: 10px;
+    color: #C0C2C8;
+}
+
+.date_author {
+    text-align: end;
+    margin-right: 8px;
+}
+
+.msg_style {
+    font-size: 14px;
+}
+
+.wr_author {
+    margin-right: 0;
+    order: 2;
+}
+
+.msg_author {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+}
+
+.text {
+    margin-right: 8px;
+    padding: 8px;
+    max-width: 386px;
+    background-color: #F2F4F8;
+    border: 1px solid #F0F0F8;
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.date {
+    text-align: end;
+}

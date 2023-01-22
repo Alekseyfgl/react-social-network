@@ -1,10 +1,9 @@
 import s from './Chat.module.css';
+import { MessageAuthor } from './MessageAuthor/MessageAuthor';
+import { MessageFriend } from './MessageFriend/MessageFriend';
+import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
 
-type ChatPropsType = {
-    message: string;
-};
-
-export const Chat = (props: ChatPropsType) => {
+export const Chat = () => {
     return (
         <div className={s.messages}>
             <div className={s.user}>
@@ -22,7 +21,28 @@ export const Chat = (props: ChatPropsType) => {
                     </div>
                 </div>
             </div>
-            {props.message}
+
+            <div className={s.list}>
+                <MessageAuthor />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+                <MessageFriend />
+            </div>
+
+            <form className={s.form}>
+                <textarea className={s.textarea} placeholder={'Type something here...'} />
+                <button className={s.btn}>
+                    <span className={s.wr_svg}>
+                        <MainSvgSelector id={'submit'} />
+                    </span>
+                </button>
+            </form>
         </div>
     );
 };

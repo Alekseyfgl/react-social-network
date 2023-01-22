@@ -31,13 +31,13 @@
 
 .link:hover {
     padding-left: 10px;
-    background-color: #aeaeae;
+    background-color: #DFEAFF;
     border-radius: 40px;
 }
 
 .active {
     padding-left: 10px;
-    background-color: #aeaeae;
+    background-color: #DFEAFF;
     border-radius: 40px;
 }
 

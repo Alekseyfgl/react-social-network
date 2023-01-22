@@ -1,0 +1,37 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+}
+
+.date {
+    font-size: 10px;
+    color: #C0C2C8;
+}
+
+.date_author {
+    text-align: end;
+    margin-right: 8px;
+}
+
+.msg_style {
+    font-size: 14px;
+}
+
+
+.msg_author {
+    display: flex;
+    align-items: end;
+}
+
+.text {
+    margin-right: 8px;
+    padding: 8px;
+    max-width: 386px;
+    color: #fff;
+    background-color: #3976EB;
+    border: 1px solid #F0F0F8;
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+}
