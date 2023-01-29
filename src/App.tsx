@@ -7,7 +7,7 @@ const App = (props: any) => {
     return (
         <div className="App">
             <Header />
-            <Main appState={props.appState} />
+            <Main appState={props.appState} onClickAddPostHandler={props.onClickAddPostHandler} onClickAddMessageHandler={props.onClickAddMessageHandler} />
         </div>
     );
 };

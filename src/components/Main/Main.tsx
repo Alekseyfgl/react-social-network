@@ -15,10 +15,10 @@ export const Main = (props: any) => {
             <main className={`${s.main} main_wr`}>
                 <Navbar />
 
-                <Route path={'/profile'} render={() => <Profile posts={props.appState.profilePage.posts} />} />
+                <Route path={'/profile'} render={() => <Profile posts={props.appState.profilePage.posts} onClickAddPostHandler={props.onClickAddPostHandler} />} />
                 <Route path={'/news'} render={() => <News />} />
                 <Route path={'/acquaintance'} render={() => <Acquaintance />} />
-                <Route path={'/messages'} render={() => <Messages dialogs={props.appState.messagesPage.dialogs} />} />
+                <Route path={'/messages'} render={() => <Messages dialogs={props.appState.messagesPage.dialogs} onClickAddMessageHandler={props.onClickAddMessageHandler} />} />
                 <Route path={'/settings'} render={() => <Settings />} />
                 <Route path={'/developers'} render={() => <Developers />} />
                 {/*component - из-за этого атрибута нельзя передать пропсы внутрь*/}

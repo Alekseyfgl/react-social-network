@@ -38,7 +38,7 @@ export const Messages = (props: any) => {
                 <div>{dialogsElements}</div>
             </div>
 
-            <Chat />
+            <Chat onClickAddMessageHandler={props.onClickAddMessageHandler} />
         </div>
     );
 };

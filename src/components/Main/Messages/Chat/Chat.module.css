@@ -67,30 +67,3 @@
     min-height: 32px;
 }
 
-.wr_svg {
-    display: block;
-    height: 14px;
-    width: 14px;
-}
-
-.btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    border: 1px solid #92B1ED;
-    border-radius: 5px;
-    height: 32px;
-    width: 32px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    transition: 0.5s;
-    background-color: #DFEAFF;
-    transform: rotate(-90deg);
-}
-
-
-
-

@@ -1,5 +1,5 @@
 import s from './Aside.module.css';
-import { MainSvgSelector } from '../../SvgSelector/MainSvgSelector';
+import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
 import { Person } from './Person/Person';
 
 export const Aside = () => {

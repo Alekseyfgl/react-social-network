@@ -1,9 +1,20 @@
 import s from './Chat.module.css';
 import { MessageAuthor } from './MessageAuthor/MessageAuthor';
 import { MessageFriend } from './MessageFriend/MessageFriend';
-import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
+import { SubmitBtn } from '../../../../kit/SubmitBtn/SubmitBtn';
+import React, { FC } from 'react';
 
-export const Chat = () => {
+type ChatPropsType = {
+    onClickAddMessageHandler: () => void;
+};
+export const Chat: FC<ChatPropsType> = (props) => {
+    const textareaElem: any = React.createRef();
+
+    // const onClickAddMessageHandler = (e: FormEvent<HTMLButtonElement>) => {
+    //     e.preventDefault();
+    //     console.log(e);
+    //     console.log(textareaElem.current.value);
+    // };
     return (
         <div className={s.messages}>
             <div className={s.user}>
@@ -36,12 +47,8 @@ export const Chat = () => {
             </div>
 
             <form className={s.form}>
-                <textarea className={s.textarea} placeholder={'Type something here...'} />
-                <button className={s.btn}>
-                    <span className={s.wr_svg}>
-                        <MainSvgSelector id={'submit'} />
-                    </span>
-                </button>
+                <textarea ref={textareaElem} className={s.textarea} placeholder={'Type something here...'} />
+                <SubmitBtn onClick={props.onClickAddMessageHandler} />
             </form>
         </div>
     );

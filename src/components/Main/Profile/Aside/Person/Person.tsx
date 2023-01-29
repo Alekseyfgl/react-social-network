@@ -1,5 +1,5 @@
 import s from './Person.module.css';
-import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
+import { MainSvgSelector } from '../../../../SvgSelector/MainSvgSelector';
 
 export const Person = () => {
     return (

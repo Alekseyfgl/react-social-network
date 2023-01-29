@@ -1,3 +1,6 @@
+import { FormEvent } from 'react';
+import { renderEntireTree } from '../render';
+
 export const state = {
     profilePage: {
         posts: {
@@ -34,4 +37,23 @@ export const state = {
             { id: 3, user: 'Adam' },
         ],
     },
+};
+
+export const onClickAddPostHandler = (e: FormEvent<HTMLButtonElement>, postValue: string) => {
+    e.preventDefault();
+    state.profilePage.posts.post.push({
+        id: +new Date(),
+        date: '21 January 11:40',
+        text: postValue,
+        img: null,
+    });
+
+    console.log(e);
+    console.log(postValue);
+    renderEntireTree(state);
+};
+
+export const onClickAddMessageHandler = (e: FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    console.log(e);
 };
