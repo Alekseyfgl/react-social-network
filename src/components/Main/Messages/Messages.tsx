@@ -1,28 +1,20 @@
 import s from './Messages.module.css';
-import { MainSvgSelector } from '../../SvgSelector/MainSvgSelector';
-import { Dialog } from './Dialog/Dialog';
-import { Chat } from './Chat/Chat';
+import {MainSvgSelector} from '../../SvgSelector/MainSvgSelector';
+import {Dialog} from './Dialog/Dialog';
+import {Chat} from './Chat/Chat';
+import {IFriendInfoState, IMsgState, IUserState} from '../../../redux/state.interface';
+import {FC, FormEvent} from 'react';
 
-const mesgs = {
-    author: 'Alex',
-    friend: 'Dima',
-    dialogId: 1,
-    messages: [
-        {
-            authorId: 1,
-            date: '12 june 18.50',
-            text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quibusdam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, minima!',
-        },
-        {
-            friendId: 2,
-            date: '13 june 18.50',
-            text: 'Lorem ipsum dolor!!!',
-        },
-    ],
-};
+interface IMessageProps {
+    friendInfo: IFriendInfoState
+    userInfo: IUserState
+    dialogs: IMsgState[]
+    onClickAddMessageHandler: (e: FormEvent<HTMLButtonElement>) => void;
+}
 
-export const Messages = (props: any) => {
-    const dialogsElements: JSX.Element[] = props.dialogs.map((d: any) => <Dialog id={d.id} name={d.user} key={d.id} />);
+export const Messages: FC<IMessageProps> = (props) => {
+    const {userInfo, friendInfo, dialogs, onClickAddMessageHandler} = props;
+    const dialogsElements: JSX.Element[] = dialogs.map((d: IMsgState) => <Dialog id={d.id} name={d.user} key={d.id}/>);
 
     return (
         <div className={`${s.block} block_light-blue`}>
@@ -30,15 +22,15 @@ export const Messages = (props: any) => {
                 <h2 className={s.title}>Dialogs</h2>
                 <form className={s.form}>
                     <div className={s.wr_svg}>
-                        <MainSvgSelector id={'loupe'} />
+                        <MainSvgSelector id={'loupe'}/>
                     </div>
-                    <input className={s.input} type="text" placeholder={'Search'} />
+                    <input className={s.input} type="text" placeholder={'Search'}/>
                 </form>
 
                 <div>{dialogsElements}</div>
             </div>
 
-            <Chat onClickAddMessageHandler={props.onClickAddMessageHandler} />
+            <Chat friendInfo={friendInfo} userInfo={userInfo} onClickAddMessageHandler={onClickAddMessageHandler}/>
         </div>
     );
 };

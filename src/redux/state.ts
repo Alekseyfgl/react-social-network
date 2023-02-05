@@ -1,13 +1,32 @@
-import { FormEvent } from 'react';
-import { renderEntireTree } from '../render';
+import {FormEvent} from 'react';
+import {IState} from './state.interface';
 
-export const state = {
+
+let renderEntireTree = (): void => console.log('state changed');
+
+
+export const state: IState = {
+    userInfo: {
+        id: 1,
+        userName: 'Alex Lorem',
+        age: 99,
+        country: 'Belarus',
+        city: 'Minsk',
+        phone: '+375558887755',
+        img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+        nickName: 'Alex_qqq',
+        email: 'qweewfsdaf@gmail.cpm',
+        birthday: '10 April 1997',
+        publicationCount: 3,
+        statusOnline: true,
+    },
     profilePage: {
         posts: {
             author: {
                 name: 'Alex Sims',
                 img: 'https://m.media-amazon.com/images/M/MV5BOTBhMTI1NDQtYmU4Mi00MjYyLTk5MjEtZjllMDkxOWY3ZGRhXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_.jpg',
             },
+            newPostText: '',
             post: [
                 {
                     id: +new Date(),
@@ -31,29 +50,91 @@ export const state = {
         },
     },
     messagesPage: {
+        newMassageText: 'Hello alex',
         dialogs: [
-            { id: 1, user: 'Alex' },
-            { id: 2, user: 'Dima' },
-            { id: 3, user: 'Adam' },
+            {id: 1, user: 'Alex'},
+            {id: 2, user: 'Dima'},
+            {id: 3, user: 'Adam'},
         ],
     },
+    friendInfo: {
+        id: 2,
+        userName: 'Dimach Aluyanov',
+        age: 25,
+        country: 'Belarus',
+        city: 'Grodno',
+        phone: '+375557772233',
+        img: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+        nickName: 'Dimach_dimach',
+        email: 'Dimach_dimach@gmail.cpm',
+        birthday: '10 April 1922',
+        publicationCount: 77,
+        statusOnline: true,
+        messageInChat: [
+            {
+                id: 20,
+                userId: 2,
+                date: '18.50',
+                text: 'Lorem ipsum dolor!!!',
+            },
+            {
+                id: 21,
+                userId: 2,
+                date: '18.50',
+                text: 'qwewerweqw',
+            },
+            {
+                id: 22,
+                userId: 2,
+                date: '18.50',
+                text: 'qwewerweqw',
+            },
+            {
+                id: 23,
+                userId: 1,
+                date: '18.50',
+                text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, quibusdam! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloribus, minima!',
+            },
+            {
+                id: 24,
+                userId: 1,
+                date: '18.50',
+                text: 'Good work',
+            },
+        ],
+    }
 };
 
-export const onClickAddPostHandler = (e: FormEvent<HTMLButtonElement>, postValue: string) => {
+
+export const onClickAddPostHandler = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     state.profilePage.posts.post.push({
         id: +new Date(),
         date: '21 January 11:40',
-        text: postValue,
+        text: state.profilePage.posts.newPostText,
         img: null,
     });
-
-    console.log(e);
-    console.log(postValue);
-    renderEntireTree(state);
+    renderEntireTree();
+    updateTextPost('')
 };
 
 export const onClickAddMessageHandler = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log(e);
 };
+
+
+export const updateTextPost = (text: string) => {
+    state.profilePage.posts.newPostText = text
+    renderEntireTree();
+}
+
+export const updateMessage = (text: string) => {
+    state.messagesPage.newMassageText = text
+    renderEntireTree();
+}
+
+
+export const subscriber = (observer: () => void) => {
+    renderEntireTree = observer
+}

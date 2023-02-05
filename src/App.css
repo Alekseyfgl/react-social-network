@@ -94,8 +94,7 @@ svg {
 .main_wr {
     max-width: 1200px;
     min-width: 320px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 0 15px;
     margin: 0 auto;
 }
 

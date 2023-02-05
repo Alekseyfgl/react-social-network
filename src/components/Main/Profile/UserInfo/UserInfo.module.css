@@ -1,0 +1,70 @@
+.user {
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.user_info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 24px;
+    background: #FAFCFF;
+    border-bottom: 1px solid #93B1ED;
+}
+
+
+.location {
+    display: flex;
+}
+
+.names {
+    margin-bottom: 24px;
+}
+
+.user_name {
+    font-size: 18px;
+}
+
+
+.user_nick {
+    font-size: 14px;
+    color: #C0C2C8;
+}
+
+.item {
+    display: flex;
+}
+
+.item:first-child {
+    margin-right: 34px;
+}
+
+.title {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+.contact_items {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contact_item {
+    display: flex;
+    align-items: center;
+}
+
+.contacts {
+    color: #B2B2B6;
+}
+
+.img_wr {
+    height: 132px;
+    width: 132px;
+    margin-right: 30px;
+    border-radius: 50%;
+}
+
+.svg_wr {
+    height: 20px;
+    margin-right: 12px;
+}

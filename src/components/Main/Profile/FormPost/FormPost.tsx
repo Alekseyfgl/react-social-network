@@ -1,12 +1,18 @@
 import s from './FormPost.module.css';
-import { SubmitBtn } from '../../../../kit/SubmitBtn/SubmitBtn';
-import React, { CSSProperties, FC, MouseEvent, RefObject } from 'react';
+import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
+import React, {ChangeEvent, CSSProperties, FC, FormEvent, MouseEvent, RefObject} from 'react';
 
 type FormPostType = {
-    onClickAddPostHandler: (e: any, postValue: string) => void;
-};
+    newPostText: string
+    onClickAddPostHandler: (e: FormEvent<HTMLButtonElement>) => void;
+    updateTextPost: (text: string) => void
+}
 
 export const FormPost: FC<FormPostType> = (props) => {
+    const {newPostText, onClickAddPostHandler, updateTextPost} = props;
+
+    // const [textAreaValue, setTextAreaValue] = useState<string>(newPostText);
+
     const styleBtn: { [key: string]: CSSProperties } = {
         container: {
             position: 'absolute',
@@ -16,16 +22,22 @@ export const FormPost: FC<FormPostType> = (props) => {
 
     const textArea: RefObject<HTMLTextAreaElement> = React.createRef<HTMLTextAreaElement>();
 
-    // const onClickAddPostHandler = (e: FormEvent<HTMLButtonElement>) => {
-    //     e.preventDefault();
-    //     console.log(e);
-    //     console.log(textArea.current.value);
-    // };
+    const onClickHandlerAddPost = (e: MouseEvent<HTMLButtonElement>): void => onClickAddPostHandler(e);
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => updateTextPost(e.currentTarget.value)
+
 
     return (
         <form className={s.form}>
-            <textarea ref={textArea} placeholder={'Anything new?'} className={s.textarea} />
-            <SubmitBtn onClick={(e: MouseEvent<HTMLButtonElement>) => props.onClickAddPostHandler(e, textArea.current ? textArea.current.value : '---')} styleBtn={styleBtn} />
+            <textarea ref={textArea}
+                      placeholder={'Anything new?'}
+                      className={s.textarea}
+                      value={newPostText}
+                      onChange={onChangeHandler}
+            />
+
+            <SubmitBtn onClick={onClickHandlerAddPost}
+                       styleBtn={styleBtn}
+            />
         </form>
     );
 };
