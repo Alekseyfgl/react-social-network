@@ -1,17 +1,18 @@
 import s from './FormPost.module.css';
 import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
-import React, {ChangeEvent, CSSProperties, FC, FormEvent, MouseEvent, RefObject} from 'react';
+import React, {ChangeEvent, CSSProperties, FC, RefObject} from 'react';
+import {ActionsTypes} from '../../../../redux/state.interface';
+import {addPostCreator, updateNewPostTextCreator} from '../../../../redux/profile-reducer';
 
 type FormPostType = {
     newPostText: string
-    onClickAddPostHandler: (e: FormEvent<HTMLButtonElement>) => void;
-    updateTextPost: (text: string) => void
+    dispatch: (action: ActionsTypes) => void;
 }
 
-export const FormPost: FC<FormPostType> = (props) => {
-    const {newPostText, onClickAddPostHandler, updateTextPost} = props;
 
-    // const [textAreaValue, setTextAreaValue] = useState<string>(newPostText);
+export const FormPost: FC<FormPostType> = (props) => {
+    const {newPostText, dispatch} = props;
+
 
     const styleBtn: { [key: string]: CSSProperties } = {
         container: {
@@ -22,12 +23,12 @@ export const FormPost: FC<FormPostType> = (props) => {
 
     const textArea: RefObject<HTMLTextAreaElement> = React.createRef<HTMLTextAreaElement>();
 
-    const onClickHandlerAddPost = (e: MouseEvent<HTMLButtonElement>): void => onClickAddPostHandler(e);
-    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => updateTextPost(e.currentTarget.value)
+    const onClickHandlerAddPost = (): void => dispatch(addPostCreator());
+    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => dispatch(updateNewPostTextCreator(e.currentTarget.value))
 
 
     return (
-        <form className={s.form}>
+        <div className={s.form}>
             <textarea ref={textArea}
                       placeholder={'Anything new?'}
                       className={s.textarea}
@@ -38,6 +39,6 @@ export const FormPost: FC<FormPostType> = (props) => {
             <SubmitBtn onClick={onClickHandlerAddPost}
                        styleBtn={styleBtn}
             />
-        </form>
+        </div>
     );
 };

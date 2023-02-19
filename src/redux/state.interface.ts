@@ -1,3 +1,18 @@
+import {FormEvent} from 'react';
+import {addPostCreator, updateNewPostTextCreator} from './profile-reducer';
+import {sendMessageCreator, updateNewMessageBodyCreator} from './dialogs-reducer';
+
+
+export interface IStore {
+    _state: IState
+    getState: () => IState
+    _callSubscriber: () => void
+    onClickAddMessageHandler: (e: FormEvent<HTMLButtonElement>) => void
+    updateMessage: (text: string) => void
+    subscriber: (observer: () => void) => void
+    dispatch: (action: any) => void
+}
+
 export interface IAuthorState {
     name: string;
     img: string;
@@ -26,15 +41,16 @@ export interface IProfilePageState {
 }
 
 export interface IMassagePageState {
-    newMassageText: string
+    newMessageBody: string
     dialogs: IMsgState[];
+    messagesInChat: IMessagesInChatState[]
 }
 
 export interface IState {
     userInfo: IUserState
     profilePage: IProfilePageState
     messagesPage: IMassagePageState
-    friendInfo: IFriendInfoState
+    friendInfo: IUserState
 }
 
 export interface IUserState {
@@ -53,13 +69,15 @@ export interface IUserState {
 }
 
 
-export interface IFriendInfoState extends IUserState {
-    messageInChat: IMessageState[]
-}
-
-export interface IMessageState {
+export interface IMessagesInChatState {
     id: number
     userId: number
     date: string
     text: string
 }
+
+export type ActionsTypes =
+    ReturnType<typeof addPostCreator>
+    | ReturnType<typeof sendMessageCreator>
+    | ReturnType<typeof updateNewPostTextCreator>
+    | ReturnType<typeof updateNewMessageBodyCreator>

@@ -2,19 +2,18 @@ import s from './Profile.module.css';
 import {Post} from './Post/Post';
 import {Aside} from './Aside/Aside';
 import {FormPost} from './FormPost/FormPost';
-import {IPostState, IProfile} from '../../../redux/state.interface';
-import {FC, FormEvent} from 'react';
+import {ActionsTypes, IPostState, IProfile} from '../../../redux/state.interface';
+import {FC} from 'react';
 import {UserInfo} from './UserInfo/UserInfo';
 
 interface IProfileProps {
 
     posts: IProfile
-    onClickAddPostHandler: (e: FormEvent<HTMLButtonElement>) => void
-    updateTextPost: (text: string) => void
+    dispatch: (value: ActionsTypes) => void
 }
 
 export const Profile: FC<IProfileProps> = (props) => {
-    const {posts, updateTextPost, onClickAddPostHandler} = props;
+    const {posts, dispatch} = props;
 
 
     const postsComponents: JSX.Element[] = posts.post.map((p: IPostState) => {
@@ -33,8 +32,8 @@ export const Profile: FC<IProfileProps> = (props) => {
             <div className={s.content}>
                 <UserInfo/>
                 <FormPost newPostText={posts.newPostText}
-                          onClickAddPostHandler={onClickAddPostHandler}
-                          updateTextPost={updateTextPost}
+                          dispatch={dispatch}
+                    // updateTextPost={updateTextPost}
                 />
                 {postsComponents}
             </div>
