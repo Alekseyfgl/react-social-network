@@ -1,17 +1,16 @@
 import s from './FormPost.module.css';
 import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
-import React, {ChangeEvent, CSSProperties, FC, RefObject} from 'react';
-import {ActionsTypes} from '../../../../redux/state.interface';
-import {addPostCreator, updateNewPostTextCreator} from '../../../../redux/profile-reducer';
+import React, {CSSProperties, FC, RefObject} from 'react';
 
 type FormPostType = {
     newPostText: string
-    dispatch: (action: ActionsTypes) => void;
+    updateNewPostText: (text: string) => void
+    addPost: () => void
 }
 
 
 export const FormPost: FC<FormPostType> = (props) => {
-    const {newPostText, dispatch} = props;
+    const {newPostText} = props;
 
 
     const styleBtn: { [key: string]: CSSProperties } = {
@@ -23,8 +22,15 @@ export const FormPost: FC<FormPostType> = (props) => {
 
     const textArea: RefObject<HTMLTextAreaElement> = React.createRef<HTMLTextAreaElement>();
 
-    const onClickHandlerAddPost = (): void => dispatch(addPostCreator());
-    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => dispatch(updateNewPostTextCreator(e.currentTarget.value))
+    const onAddPost = (): void => {
+        props.addPost()
+    };
+
+
+    const onChangeHandler = () => {
+        const text: string = textArea.current!.value;
+        props.updateNewPostText(text)
+    }
 
 
     return (
@@ -36,7 +42,7 @@ export const FormPost: FC<FormPostType> = (props) => {
                       onChange={onChangeHandler}
             />
 
-            <SubmitBtn onClick={onClickHandlerAddPost}
+            <SubmitBtn onClick={onAddPost}
                        styleBtn={styleBtn}
             />
         </div>

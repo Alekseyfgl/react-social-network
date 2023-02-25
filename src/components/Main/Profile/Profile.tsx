@@ -1,24 +1,22 @@
 import s from './Profile.module.css';
 import {Post} from './Post/Post';
 import {Aside} from './Aside/Aside';
-import {FormPost} from './FormPost/FormPost';
-import {ActionsTypes, IPostState, IProfile} from '../../../redux/state.interface';
+import {IPostState, IStore} from '../../../redux/state.interface';
 import {FC} from 'react';
 import {UserInfo} from './UserInfo/UserInfo';
+import {FormPostContainer} from './FormPost/FormPostContainer';
 
 interface IProfileProps {
-
-    posts: IProfile
-    dispatch: (value: ActionsTypes) => void
+    store: IStore
 }
 
 export const Profile: FC<IProfileProps> = (props) => {
-    const {posts, dispatch} = props;
+    const {store} = props;
 
 
-    const postsComponents: JSX.Element[] = posts.post.map((p: IPostState) => {
+    const postsComponents: JSX.Element[] = store.getState().profilePage.posts.post.map((p: IPostState) => {
         return (
-            <Post author={posts.author}
+            <Post author={store.getState().profilePage.posts.author}
                   id={p.id}
                   date={p.date}
                   text={p.text}
@@ -31,9 +29,7 @@ export const Profile: FC<IProfileProps> = (props) => {
         <>
             <div className={s.content}>
                 <UserInfo/>
-                <FormPost newPostText={posts.newPostText}
-                          dispatch={dispatch}
-                    // updateTextPost={updateTextPost}
+                <FormPostContainer
                 />
                 {postsComponents}
             </div>

@@ -1,5 +1,5 @@
 import {FormEvent} from 'react';
-import {addPostCreator, updateNewPostTextCreator} from './profile-reducer';
+import {addPostAC, updateNewPostTextAC} from './profile-reducer';
 import {sendMessageCreator, updateNewMessageBodyCreator} from './dialogs-reducer';
 
 
@@ -10,7 +10,7 @@ export interface IStore {
     onClickAddMessageHandler: (e: FormEvent<HTMLButtonElement>) => void
     updateMessage: (text: string) => void
     subscriber: (observer: () => void) => void
-    dispatch: (action: any) => void
+    dispatch: (action: ActionsTypes) => void
 }
 
 export interface IAuthorState {
@@ -77,7 +77,7 @@ export interface IMessagesInChatState {
 }
 
 export type ActionsTypes =
-    ReturnType<typeof addPostCreator>
+    ReturnType<typeof addPostAC>
     | ReturnType<typeof sendMessageCreator>
-    | ReturnType<typeof updateNewPostTextCreator>
+    | ReturnType<typeof updateNewPostTextAC>
     | ReturnType<typeof updateNewMessageBodyCreator>

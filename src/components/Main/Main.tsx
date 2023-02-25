@@ -8,39 +8,32 @@ import {Acquaintance} from './Acquaintance/Acquaintance';
 import {Settings} from './Settings/Settings';
 import {Developers} from './Developers/Developers';
 import {Technologies} from './Technologies/Technologies';
-import {ActionsTypes, IMassagePageState, IProfilePageState, IUserState,} from '../../redux/state.interface';
+import {IStore,} from '../../redux/state.interface';
 import {FC} from 'react';
 
 interface IMainProps {
-    userInfo: IUserState
-    friendInfo: IUserState
-    profilePage: IProfilePageState;
-    messagesPage: IMassagePageState;
-    newPostText: string;
-    dispatch: (value: ActionsTypes) => void;
+    // userInfo: IUserState
+    // friendInfo: IUserState
+    // profilePage: IProfilePageState;
+    // messagesPage: IMassagePageState;
+    // newPostText: string;
+    // dispatch: (value: ActionsTypes) => void;
+    store: IStore
 }
 
 export const Main: FC<IMainProps> = (props) => {
     const {
-        userInfo,
-        friendInfo,
-        profilePage,
-        messagesPage,
-        dispatch
+        store
     } = props;
 
 
     const renderHandlerProfile = () => {
-        return <Profile posts={profilePage.posts}
-                        dispatch={dispatch}
+        return <Profile store={store}
         />;
     };
 
     const renderHandlerMessages = () => {
-        return <Messages userInfo={userInfo}
-                         friendInfo={friendInfo}
-                         messagesPage={messagesPage}
-                         dispatch={dispatch}
+        return <Messages store={store}
         />;
     };
 

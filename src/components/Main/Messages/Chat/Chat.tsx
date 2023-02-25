@@ -3,18 +3,18 @@ import {MessageAuthor} from './MessageAuthor/MessageAuthor';
 import {MessageFriend} from './MessageFriend/MessageFriend';
 import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
 import React, {ChangeEvent, FC, RefObject} from 'react';
-import {ActionsTypes, IMessagesInChatState, IUserState} from '../../../../redux/state.interface';
-import {sendMessageCreator, updateNewMessageBodyCreator} from '../../../../redux/dialogs-reducer';
+import {IMessagesInChatState, IUserState} from '../../../../redux/state.interface';
 
 type ChatPropsType = {
     userInfo: IUserState
     friendInfo: IUserState
     messagesInChat: IMessagesInChatState[]
     newMessageBody: string
-    dispatch: (value: ActionsTypes) => void
+    sendMessage: () => void
+    updateTextInMessage: (text: string) => void
 };
 export const Chat: FC<ChatPropsType> = (props) => {
-    const {userInfo, friendInfo, messagesInChat, newMessageBody, dispatch} = props
+    const {userInfo, friendInfo, messagesInChat, newMessageBody, sendMessage, updateTextInMessage} = props
 
     const textareaElem: RefObject<HTMLTextAreaElement> = React.createRef<HTMLTextAreaElement>();
 
@@ -28,11 +28,14 @@ export const Chat: FC<ChatPropsType> = (props) => {
 
 
     const onClickSendMessage = () => {
-        dispatch(sendMessageCreator())
+        sendMessage()
+        // dispatch(sendMessageCreator())
     };
 
-    const onChangeHandler = (e: ChangeEvent<HTMLTextAreaElement>) => {
-        dispatch(updateNewMessageBodyCreator(e.currentTarget.value))
+    const onChangeTextInMessage = (e: ChangeEvent<HTMLTextAreaElement>) => {
+        const text: string = e.currentTarget.value
+        updateTextInMessage(text)
+        // dispatch(updateNewMessageBodyCreator(e.currentTarget.value))
     };
     return (
         <div className={s.messages}>
@@ -61,7 +64,7 @@ export const Chat: FC<ChatPropsType> = (props) => {
                           ref={textareaElem}
                           className={s.textarea}
                           placeholder={'Type something here...'}
-                          onChange={onChangeHandler}
+                          onChange={onChangeTextInMessage}
                 />
                 <SubmitBtn onClick={onClickSendMessage}/>
             </div>

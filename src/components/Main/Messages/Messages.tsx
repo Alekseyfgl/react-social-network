@@ -1,20 +1,21 @@
 import s from './Messages.module.css';
 import {MainSvgSelector} from '../../SvgSelector/MainSvgSelector';
 import {Dialog} from './Dialog/Dialog';
-import {Chat} from './Chat/Chat';
-import {ActionsTypes, IMassagePageState, IMsgState, IUserState} from '../../../redux/state.interface';
+import {IMsgState, IStore} from '../../../redux/state.interface';
 import {FC} from 'react';
+import {ChatContainer} from './Chat/ChatContainer';
 
 interface IMessageProps {
-    friendInfo: IUserState
-    userInfo: IUserState
-    messagesPage: IMassagePageState
-    dispatch: (value: ActionsTypes) => void
+    store: IStore
+    // friendInfo: IUserState
+    // userInfo: IUserState
+    // messagesPage: IMassagePageState
+    // dispatch: (value: ActionsTypes) => void
 }
 
 export const Messages: FC<IMessageProps> = (props) => {
-    const {userInfo, friendInfo, messagesPage, dispatch} = props;
-    const dialogsElements: JSX.Element[] = messagesPage.dialogs.map((d: IMsgState) => <Dialog id={d.id} name={d.user} key={d.id}/>);
+    const store = props.store.getState().messagesPage;
+    const dialogsElements: JSX.Element[] = store.dialogs.map((d: IMsgState) => <Dialog id={d.id} name={d.user} key={d.id}/>);
 
     return (
         <div className={`${s.block} block_light-blue`}>
@@ -30,12 +31,7 @@ export const Messages: FC<IMessageProps> = (props) => {
                 <div>{dialogsElements}</div>
             </div>
 
-            <Chat friendInfo={friendInfo}
-                  userInfo={userInfo}
-                  messagesInChat={messagesPage.messagesInChat}
-                  dispatch={dispatch}
-                  newMessageBody={messagesPage.newMessageBody}
-            />
+            <ChatContainer/>
         </div>
     );
 };
