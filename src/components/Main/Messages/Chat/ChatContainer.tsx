@@ -5,32 +5,6 @@ import {ActionsTypes, IState} from '../../../../redux/state.interface';
 import {Chat} from './Chat';
 
 
-// export const ChatContainer = () => {
-//     return (
-//         <StoreContext.Consumer>
-//             {(store) => {
-//                 const sendMessage = () => {
-//                     store.dispatch(sendMessageCreator())
-//                 };
-//
-//                 const updateTextInMessage = (text: string) => {
-//                     store.dispatch(updateNewMessageBodyCreator(text))
-//                 };
-//
-//                 return (<Chat sendMessage={sendMessage}
-//                               updateTextInMessage={updateTextInMessage}
-//                               messagesInChat={store.getState().messagesPage.messagesInChat}
-//                               friendInfo={store.getState().friendInfo}
-//                               userInfo={store.getState().userInfo}
-//                               newMessageBody={store.getState().messagesPage.newMessageBody}
-//                     />
-//                 )
-//             }}
-//         </StoreContext.Consumer>
-//     );
-// }
-
-
 const mapStateToProps = (state: IState) => {
     return {
         messagesPage: state.messagesPage,

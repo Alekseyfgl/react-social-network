@@ -7,10 +7,6 @@ import {ChatContainer} from './Chat/ChatContainer';
 
 interface IMessageProps {
     store: IStore
-    // friendInfo: IUserState
-    // userInfo: IUserState
-    // messagesPage: IMassagePageState
-    // dispatch: (value: ActionsTypes) => void
 }
 
 export const Messages: FC<IMessageProps> = (props) => {

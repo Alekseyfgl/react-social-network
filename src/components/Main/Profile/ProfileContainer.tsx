@@ -1,13 +1,12 @@
-import {FormPost} from './FormPost';
-import {addPostAC, updateNewPostTextAC} from '../../../../redux/profile-reducer';
-import React from 'react';
-import {ActionsTypes, IState} from '../../../../redux/state.interface';
+import {ActionsTypes, IState} from '../../../redux/state.interface';
+import {addPostAC, updateNewPostTextAC} from '../../../redux/profile-reducer';
 import {connect} from 'react-redux';
+import {Profile} from './Profile';
 
 
 const mapStateToProps = (state: IState) => {
     return {
-        newPostText: state.profilePage.posts.newPostText
+        profilePage: state.profilePage,
     }
 }
 
@@ -22,4 +21,4 @@ const mapDispatchToProps = (dispatch: (action: ActionsTypes) => void) => {
     }
 }
 
-export const FormPostContainer = connect(mapStateToProps, mapDispatchToProps)(FormPost);
+export const ProfileContainer = connect(mapStateToProps, mapDispatchToProps)(Profile);

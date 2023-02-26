@@ -10,8 +10,7 @@ type FormPostType = {
 
 
 export const FormPost: FC<FormPostType> = (props) => {
-    const {newPostText} = props;
-
+    const {newPostText, updateNewPostText, addPost} = props;
 
     const styleBtn: { [key: string]: CSSProperties } = {
         container: {
@@ -23,13 +22,13 @@ export const FormPost: FC<FormPostType> = (props) => {
     const textArea: RefObject<HTMLTextAreaElement> = React.createRef<HTMLTextAreaElement>();
 
     const onAddPost = (): void => {
-        props.addPost()
+        addPost()
     };
 
 
     const onChangeHandler = () => {
         const text: string = textArea.current!.value;
-        props.updateNewPostText(text)
+        updateNewPostText(text)
     }
 
 

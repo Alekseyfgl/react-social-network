@@ -36,18 +36,19 @@ const initialState: IProfilePageState = {
 
 export const profileReducer = (state: IProfilePageState = initialState, action: ActionsTypes) => {
 
+    console.log('click')
     switch (action.type) {
         case ADD_POST: {
             const stateCopy: IProfilePageState = {...state}
-            const copyPosts: IPostState[] = [...stateCopy.posts.post]
 
-            copyPosts.push({
+
+            const newPost = {
                 id: +new Date(),
                 date: '21 January 11:40',
                 text: state.posts.newPostText,
                 img: null,
-            });
-
+            };
+            const copyPosts: IPostState[] = [newPost, ...stateCopy.posts.post]
             stateCopy.posts.post = copyPosts
             stateCopy.posts.newPostText = '';
             return stateCopy
