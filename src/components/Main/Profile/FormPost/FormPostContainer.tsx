@@ -1,36 +1,25 @@
 import {FormPost} from './FormPost';
 import {addPostAC, updateNewPostTextAC} from '../../../../redux/profile-reducer';
-import React, {FC} from 'react';
-import {StoreContext} from '../../../../store-context/StoreContext';
+import React from 'react';
+import {ActionsTypes, IState} from '../../../../redux/state.interface';
+import {connect} from 'react-redux';
 
-interface IFormPostContainerProps {
-    // store: IStore
+
+const mapStateToProps = (state: IState) => {
+    return {
+        newPostText: state.profilePage.posts.newPostText
+    }
 }
 
-export const FormPostContainer: FC<IFormPostContainerProps> = (props) => {
-    // const {store} = props
-
-
-    return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    const onAddPost = (): void => {
-                        store.dispatch(addPostAC())
-                    };
-
-                    const onPostChange = (text: string) => {
-                        store.dispatch(updateNewPostTextAC(text));
-                    };
-
-                    return (<FormPost updateNewPostText={onPostChange}
-                                      addPost={onAddPost}
-                                      newPostText={store.getState().profilePage.posts.newPostText}/>
-                    )
-                }
-            }
-
-        </StoreContext.Consumer>
-
-    );
+const mapDispatchToProps = (dispatch: (action: ActionsTypes) => void) => {
+    return {
+        updateNewPostText: (text: string) => {
+            dispatch(updateNewPostTextAC(text));
+        },
+        addPost: () => {
+            dispatch(addPostAC())
+        },
+    }
 }
+
+export const FormPostContainer = connect(mapStateToProps, mapDispatchToProps)(FormPost);

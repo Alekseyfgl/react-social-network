@@ -29,8 +29,7 @@ export const Profile: FC<IProfileProps> = (props) => {
         <>
             <div className={s.content}>
                 <UserInfo/>
-                <FormPostContainer
-                />
+                <FormPostContainer/>
                 {postsComponents}
             </div>
             <Aside/>

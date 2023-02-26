@@ -1,4 +1,4 @@
-import {ActionsTypes, IProfilePageState} from './state.interface';
+import {ActionsTypes, IPostState, IProfilePageState} from './state.interface';
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
@@ -10,7 +10,7 @@ const initialState: IProfilePageState = {
             name: 'Alex Sims',
             img: 'https://m.media-amazon.com/images/M/MV5BOTBhMTI1NDQtYmU4Mi00MjYyLTk5MjEtZjllMDkxOWY3ZGRhXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_.jpg',
         },
-        newPostText: '',
+        newPostText: 'default text',
         post: [
             {
                 id: +new Date(),
@@ -37,24 +37,35 @@ const initialState: IProfilePageState = {
 export const profileReducer = (state: IProfilePageState = initialState, action: ActionsTypes) => {
 
     switch (action.type) {
-        case ADD_POST:
-            state.posts.post.push({
+        case ADD_POST: {
+            const stateCopy: IProfilePageState = {...state}
+            const copyPosts: IPostState[] = [...stateCopy.posts.post]
+
+            copyPosts.push({
                 id: +new Date(),
                 date: '21 January 11:40',
                 text: state.posts.newPostText,
                 img: null,
             });
-            state.posts.newPostText = '';
-            return state
-        case UPDATE_NEW_POST_TEXT :
-            state.posts.newPostText = action.text
-            return state
+
+            stateCopy.posts.post = copyPosts
+            stateCopy.posts.newPostText = '';
+            return stateCopy
+        }
+
+        case UPDATE_NEW_POST_TEXT : {
+            const stateCopy = {...state}
+            stateCopy.posts.newPostText = action.text
+            return stateCopy
+        }
+
         default :
             return state
     }
 }
 
 export const addPostAC = () => ({type: ADD_POST} as const);
+
 export const updateNewPostTextAC = (text: string) => {
     return {type: UPDATE_NEW_POST_TEXT, text: text} as const
 }

@@ -46,19 +46,23 @@ const initialState: IMassagePageState = {
 }
 
 export const dialogsReducer = (state: IMassagePageState = initialState, action: ActionsTypes) => {
+
+    const stateCopy: IMassagePageState = {...state, messagesInChat: [...state.messagesInChat]}
+
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.text
-            return state
+            stateCopy.newMessageBody = action.text
+            return stateCopy
+
         case SEND_MESSAGE:
-            state.messagesInChat.push({
+            stateCopy.messagesInChat.push({
                 id: +new Date(),
                 date: new Date().toDateString(),
                 text: state.newMessageBody,
                 userId: 1
             })
-            state.newMessageBody = ''
-            return state
+            stateCopy.newMessageBody = ''
+            return stateCopy
         default:
             return state
     }
