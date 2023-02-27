@@ -1,13 +1,13 @@
 import {connect} from 'react-redux';
 import {Messages} from './Messages';
 import {ActionsTypes, IUserState} from '../../../redux/state.interface';
-import {IMassagePageState, sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/dialogs-reducer';
+import {MassagePageType, sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/dialogs-reducer';
 import {AppStateType} from '../../../redux/redux-store';
 import {Dispatch} from 'redux';
 
 
 type MapStateToPropsType = {
-    messagesPage: IMassagePageState
+    messagesPage: MassagePageType
     friendInfo: IUserState
     userInfo: IUserState
 }

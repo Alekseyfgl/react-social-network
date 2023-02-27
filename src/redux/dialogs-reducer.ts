@@ -3,11 +3,6 @@ import {ActionsTypes} from './state.interface';
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
-export interface IMassagePageState {
-    newMessageBody: string
-    dialogs: IMsgState[];
-    messagesInChat: IMessagesInChatState[]
-}
 
 export interface IMsgState {
     id: number;
@@ -22,13 +17,13 @@ export interface IMessagesInChatState {
 }
 
 
-const initialState: IMassagePageState = {
+const initialState = {
     newMessageBody: 'Hello alex',
     dialogs: [
         {id: 1, user: 'Alex'},
         {id: 2, user: 'Dima'},
         {id: 3, user: 'Adam'},
-    ],
+    ] as IMsgState[],
     messagesInChat: [
         {
             id: 20,
@@ -60,15 +55,17 @@ const initialState: IMassagePageState = {
             date: '18.50',
             text: 'Good work',
         },
-    ],
+    ] as IMessagesInChatState[],
 }
 
+export type MassagePageType = typeof initialState
 
-export const dialogsReducer = (state: IMassagePageState = initialState, action: ActionsTypes): IMassagePageState => {
+
+export const dialogsReducer = (state: MassagePageType = initialState, action: ActionsTypes): MassagePageType => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            return {...state, newMessageBody: action.text} as IMassagePageState
+            return {...state, newMessageBody: action.text}
 
         case SEND_MESSAGE:
             const newMessage: IMessagesInChatState = {
@@ -77,7 +74,7 @@ export const dialogsReducer = (state: IMassagePageState = initialState, action: 
                 text: state.newMessageBody,
                 userId: 1
             }
-            return {...state, newMessageBody: '', messagesInChat: [...state.messagesInChat, newMessage],} as IMassagePageState
+            return {...state, newMessageBody: '', messagesInChat: [...state.messagesInChat, newMessage],}
 
         default:
             return state
