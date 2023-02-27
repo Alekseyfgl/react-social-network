@@ -1,17 +1,15 @@
 import s from './Messages.module.css';
 import {MainSvgSelector} from '../../SvgSelector/MainSvgSelector';
 import {Dialog} from './Dialog/Dialog';
-import {IMsgState, IStore} from '../../../redux/state.interface';
 import {FC} from 'react';
-import {ChatContainer} from './Chat/ChatContainer';
+import {Chat} from './Chat/Chat';
+import {IMsgState} from '../../../redux/dialogs-reducer';
+import {MessagePropsType} from './MessagesCointainer';
 
-interface IMessageProps {
-    store: IStore
-}
 
-export const Messages: FC<IMessageProps> = (props) => {
-    const store = props.store.getState().messagesPage;
-    const dialogsElements: JSX.Element[] = store.dialogs.map((d: IMsgState) => <Dialog id={d.id} name={d.user} key={d.id}/>);
+export const Messages: FC<MessagePropsType> = (props) => {
+    const {messagesPage, userInfo, friendInfo, sendMessage, updateTextInMessage} = props
+    const dialogsElements: JSX.Element[] = messagesPage.dialogs.map((d: IMsgState) => <Dialog id={d.id} name={d.user} key={d.id}/>);
 
     return (
         <div className={`${s.block} block_light-blue`}>
@@ -27,7 +25,13 @@ export const Messages: FC<IMessageProps> = (props) => {
                 <div>{dialogsElements}</div>
             </div>
 
-            <ChatContainer/>
+            <Chat messagesInChat={messagesPage.messagesInChat}
+                  newMessageBody={messagesPage.newMessageBody}
+                  userInfo={userInfo}
+                  friendInfo={friendInfo}
+                  sendMessage={sendMessage}
+                  updateTextInMessage={updateTextInMessage}
+            />
         </div>
     );
 };

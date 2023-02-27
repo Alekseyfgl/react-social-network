@@ -3,7 +3,8 @@ import {MessageAuthor} from './MessageAuthor/MessageAuthor';
 import {MessageFriend} from './MessageFriend/MessageFriend';
 import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
 import React, {ChangeEvent, FC, RefObject} from 'react';
-import {IMessagesInChatState, IUserState} from '../../../../redux/state.interface';
+import {IUserState} from '../../../../redux/state.interface';
+import {IMessagesInChatState} from '../../../../redux/dialogs-reducer';
 
 type ChatPropsType = {
     userInfo: IUserState

@@ -1,18 +1,20 @@
 import s from './Profile.module.css';
 import {Post} from './Post/Post';
 import {Aside} from './Aside/Aside';
-import {IPostState} from '../../../redux/state.interface';
 import {FC} from 'react';
 import {UserInfo} from './UserInfo/UserInfo';
 import {FormPost} from './FormPost/FormPost';
+import {IPostState} from '../../../redux/profile-reducer';
+import {ProfilePropsType} from './ProfileContainer';
 
 
-export const Profile: FC<any> = (props) => {
+export const Profile: FC<ProfilePropsType> = (props) => {
     const {profilePage, updateNewPostText, addPost} = props;
-    
-    const postsComponents: JSX.Element[] = profilePage.posts.post.map((p: IPostState) => {
+
+    const postsComponents: JSX.Element[] = profilePage.posts.map((p: IPostState) => {
         return (
-            <Post author={profilePage.posts.author}
+            <Post key={p.id}
+                  author={profilePage.author}
                   id={p.id}
                   date={p.date}
                   text={p.text}
@@ -27,7 +29,7 @@ export const Profile: FC<any> = (props) => {
                 <UserInfo/>
                 <FormPost updateNewPostText={updateNewPostText}
                           addPost={addPost}
-                          newPostText={profilePage.posts.newPostText}
+                          newPostText={profilePage.newPostText}
                 />
                 {postsComponents}
             </div>

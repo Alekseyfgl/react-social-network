@@ -13,34 +13,34 @@ export interface IStore {
     dispatch: (action: ActionsTypes) => void
 }
 
-export interface IAuthorState {
+interface IAuthorState {
     name: string;
     img: string;
 }
 
-export interface IPostState {
+interface IPostState {
     id: number;
     date: string;
     text: string;
     img: string | null;
 }
 
-export interface IMsgState {
+interface IMsgState {
     id: number;
     user: string;
 }
 
-export interface IProfile {
+interface IProfile {
     author: IAuthorState;
     newPostText: string;
-    post: IPostState[];
+    posts: IPostState[];
 }
 
-export interface IProfilePageState {
-    posts: IProfile
-}
+// export interface IProfilePageState {
+//     elementsPage: IInitialProfile
+// }
 
-export interface IMassagePageState {
+interface IMassagePageState {
     newMessageBody: string
     dialogs: IMsgState[];
     messagesInChat: IMessagesInChatState[]
@@ -48,7 +48,7 @@ export interface IMassagePageState {
 
 export interface IState {
     userInfo: IUserState
-    profilePage: IProfilePageState
+    profilePage: IProfile
     messagesPage: IMassagePageState
     friendInfo: IUserState
 }
@@ -69,7 +69,7 @@ export interface IUserState {
 }
 
 
-export interface IMessagesInChatState {
+interface IMessagesInChatState {
     id: number
     userId: number
     date: string

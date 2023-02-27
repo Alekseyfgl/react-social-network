@@ -1,7 +1,25 @@
-import {ActionsTypes, IMassagePageState} from './state.interface';
+import {ActionsTypes} from './state.interface';
 
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND-MESSAGE';
+
+export interface IMassagePageState {
+    newMessageBody: string
+    dialogs: IMsgState[];
+    messagesInChat: IMessagesInChatState[]
+}
+
+export interface IMsgState {
+    id: number;
+    user: string;
+}
+
+export interface IMessagesInChatState {
+    id: number
+    userId: number
+    date: string
+    text: string
+}
 
 
 const initialState: IMassagePageState = {
@@ -45,29 +63,30 @@ const initialState: IMassagePageState = {
     ],
 }
 
-export const dialogsReducer = (state: IMassagePageState = initialState, action: ActionsTypes) => {
 
-    const stateCopy: IMassagePageState = {...state, messagesInChat: [...state.messagesInChat]}
+export const dialogsReducer = (state: IMassagePageState = initialState, action: ActionsTypes): IMassagePageState => {
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            stateCopy.newMessageBody = action.text
-            return stateCopy
+            return {...state, newMessageBody: action.text} as IMassagePageState
 
         case SEND_MESSAGE:
-            stateCopy.messagesInChat.push({
+            const newMessage: IMessagesInChatState = {
                 id: +new Date(),
                 date: new Date().toDateString(),
                 text: state.newMessageBody,
                 userId: 1
-            })
-            stateCopy.newMessageBody = ''
-            return stateCopy
+            }
+            return {...state, newMessageBody: '', messagesInChat: [...state.messagesInChat, newMessage],} as IMassagePageState
+
         default:
             return state
     }
 }
+
+
 export const sendMessageCreator = () => ({type: SEND_MESSAGE} as const);
+
 export const updateNewMessageBodyCreator = (text: string) => {
     return {type: UPDATE_NEW_MESSAGE_BODY, text: text} as const
 }

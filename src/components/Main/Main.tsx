@@ -1,6 +1,5 @@
 import {Navbar} from './Navbar/Navbar';
 import s from './Main.module.css';
-import {Messages} from './Messages/Messages';
 import {Route} from 'react-router-dom';
 import {News} from './News/News';
 import {Acquaintance} from './Acquaintance/Acquaintance';
@@ -10,21 +9,13 @@ import {Technologies} from './Technologies/Technologies';
 import {IStore,} from '../../redux/state.interface';
 import {FC} from 'react';
 import {ProfileContainer} from './Profile/ProfileContainer';
+import {MessagesContainer} from './Messages/MessagesCointainer';
 
 interface IMainProps {
-    // userInfo: IUserState
-    // friendInfo: IUserState
-    // profilePage: IProfilePageState;
-    // messagesPage: IMassagePageState;
-    // newPostText: string;
-    // dispatch: (value: ActionsTypes) => void;
     store: IStore
 }
 
 export const Main: FC<IMainProps> = (props) => {
-    const {
-        store
-    } = props;
 
 
     const renderHandlerProfile = () => {
@@ -32,8 +23,7 @@ export const Main: FC<IMainProps> = (props) => {
     };
 
     const renderHandlerMessages = () => {
-        return <Messages store={store}
-        />;
+        return <MessagesContainer/>;
     };
 
     return (

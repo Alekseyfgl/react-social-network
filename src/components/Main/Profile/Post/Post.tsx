@@ -1,5 +1,5 @@
 import s from './Post.module.css';
-import { MainSvgSelector } from '../../../SvgSelector/MainSvgSelector';
+import {MainSvgSelector} from '../../../SvgSelector/MainSvgSelector';
 
 export const Post = (props: any) => {
     return (
@@ -8,7 +8,7 @@ export const Post = (props: any) => {
 
             <div className={`${s.author} ${s.pd}`}>
                 <div className={s.wr}>
-                    <img className={`${s.author_img} img_setting`} src={props.author.img} alt="author" />
+                    <img className={`${s.author_img} img_setting`} src={props.author.img} alt="author"/>
                 </div>
                 <div className="autor_info">
                     <p className="author_name">{props.author.name}</p>
@@ -17,13 +17,13 @@ export const Post = (props: any) => {
             </div>
 
             <p className={`${s.text} ${s.pd}`}>{props.text}</p>
-            {props.img && <img className={`${s.img} `} src={props.img} alt="post" />}
+            {props.img && <img className={`${s.img} `} src={props.img} alt="posts"/>}
             <div className={s.actions}>
                 <button className={s.btn_like}>
-                    <MainSvgSelector id={'like'} />
+                    <MainSvgSelector id={'like'}/>
                 </button>
                 <button className={s.btn_comment}>
-                    <MainSvgSelector id={'comment'} />
+                    <MainSvgSelector id={'comment'}/>
                 </button>
             </div>
         </article>
