@@ -1,10 +1,11 @@
-import {ActionsTypes,} from './state.interface';
+import {ActionsTypes} from './redux-store';
+
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 
-export interface IInitialProfile {
+export type InitialProfileType = {
     author: IAuthorState;
     newPostText: string;
     posts: IPostState[];
@@ -22,7 +23,7 @@ export interface IPostState {
     img: string | null;
 }
 
-const initialState: IInitialProfile = {
+const initialState: InitialProfileType = {
     author: {
         name: 'Alex Sims',
         img: 'https://m.media-amazon.com/images/M/MV5BOTBhMTI1NDQtYmU4Mi00MjYyLTk5MjEtZjllMDkxOWY3ZGRhXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_.jpg',
@@ -51,7 +52,7 @@ const initialState: IInitialProfile = {
 }
 
 
-export const profileReducer = (state: IInitialProfile = initialState, action: ActionsTypes): IInitialProfile => {
+export const profileReducer = (state: InitialProfileType = initialState, action: ActionsTypes): InitialProfileType => {
 
     switch (action.type) {
         case ADD_POST: {
@@ -62,13 +63,13 @@ export const profileReducer = (state: IInitialProfile = initialState, action: Ac
                 img: null,
             };
 
-            return {...state, posts: [newPost, ...state.posts], newPostText: ''} as IInitialProfile
+            return {...state, posts: [newPost, ...state.posts], newPostText: ''} as InitialProfileType
         }
 
         case UPDATE_NEW_POST_TEXT : {
             return {
                 ...state, newPostText: action.text
-            } as IInitialProfile
+            } as InitialProfileType
         }
 
         default :

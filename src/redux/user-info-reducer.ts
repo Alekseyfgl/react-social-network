@@ -1,10 +1,23 @@
-import {ActionsTypes, IUserState} from './state.interface';
-
-// const ADD_POST = 'ADD-POST';
-// const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+import {ActionsTypes} from './redux-store';
 
 
-const initialState: IUserState = {
+export interface InitialUserState {
+    id: number
+    userName: string
+    age: number
+    country: string
+    city: string
+    phone: string
+    img: string
+    nickName: string
+    email: string
+    birthday: string
+    publicationCount: number,
+    statusOnline: boolean,
+}
+
+
+const initialState: InitialUserState = {
     id: 1,
     userName: 'Alex Lorem',
     age: 99,
@@ -19,14 +32,10 @@ const initialState: IUserState = {
     statusOnline: true,
 }
 
-export const userInfoReducer = (state: IUserState = initialState, action: ActionsTypes) => {
+export const userInfoReducer = (state: InitialUserState = initialState, action: ActionsTypes) => {
     switch (action.type) {
         default :
             return state
     }
 }
 
-// export const addPostCreator = () => ({type: ADD_POST} as const);
-// export const updateNewPostTextCreator = (text: string) => {
-//     return {type: UPDATE_NEW_POST_TEXT, text: text} as const
-// }

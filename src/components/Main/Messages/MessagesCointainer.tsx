@@ -1,15 +1,16 @@
 import {connect} from 'react-redux';
 import {Messages} from './Messages';
-import {ActionsTypes, IUserState} from '../../../redux/state.interface';
+
 import {MassagePageType, sendMessageCreator, updateNewMessageBodyCreator} from '../../../redux/dialogs-reducer';
-import {AppStateType} from '../../../redux/redux-store';
+import {ActionsTypes, AppStateType} from '../../../redux/redux-store';
 import {Dispatch} from 'redux';
+import {InitialUserState} from '../../../redux/user-info-reducer';
 
 
 type MapStateToPropsType = {
     messagesPage: MassagePageType
-    friendInfo: IUserState
-    userInfo: IUserState
+    friendInfo: InitialUserState
+    userInfo: InitialUserState
 }
 
 type MapDispatchPropsType = {

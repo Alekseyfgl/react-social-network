@@ -1,7 +1,8 @@
 import {FormEvent} from 'react';
-import {ActionsTypes, IStore} from './state.interface';
+import {IStore} from './state.interface';
 import {profileReducer} from './profile-reducer';
 import {dialogsReducer} from './dialogs-reducer';
+import {ActionsTypes} from './redux-store';
 
 
 export const store: IStore = {

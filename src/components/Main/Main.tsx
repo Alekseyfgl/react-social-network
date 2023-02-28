@@ -10,6 +10,7 @@ import {IStore,} from '../../redux/state.interface';
 import {FC} from 'react';
 import {ProfileContainer} from './Profile/ProfileContainer';
 import {MessagesContainer} from './Messages/MessagesCointainer';
+import {Users} from './Users/Users';
 
 interface IMainProps {
     store: IStore
@@ -26,6 +27,10 @@ export const Main: FC<IMainProps> = (props) => {
         return <MessagesContainer/>;
     };
 
+    const renderHandlerUsers = () => {
+        return <Users/>
+    }
+
     return (
         <main className={`${s.main} main_wr`}>
 
@@ -34,6 +39,7 @@ export const Main: FC<IMainProps> = (props) => {
             <Route path={'/news'} render={() => <News/>}/>
             <Route path={'/acquaintance'} render={() => <Acquaintance/>}/>
             <Route path={'/messages'} render={renderHandlerMessages}/>
+            <Route path={'/users'} render={renderHandlerUsers}/>
             <Route path={'/settings'} render={() => <Settings/>}/>
             <Route path={'/developers'} render={() => <Developers/>}/>
             {/*component - из-за этого атрибута нельзя передать пропсы внутрь*/}

@@ -3,12 +3,13 @@ import {MessageAuthor} from './MessageAuthor/MessageAuthor';
 import {MessageFriend} from './MessageFriend/MessageFriend';
 import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
 import React, {ChangeEvent, FC, RefObject} from 'react';
-import {IUserState} from '../../../../redux/state.interface';
+
 import {IMessagesInChatState} from '../../../../redux/dialogs-reducer';
+import {InitialUserState} from '../../../../redux/user-info-reducer';
 
 type ChatPropsType = {
-    userInfo: IUserState
-    friendInfo: IUserState
+    userInfo: InitialUserState
+    friendInfo: InitialUserState
     messagesInChat: IMessagesInChatState[]
     newMessageBody: string
     sendMessage: () => void

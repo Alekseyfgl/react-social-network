@@ -1,12 +1,11 @@
-import {ActionsTypes} from '../../../redux/state.interface';
-import {addPostAC, IInitialProfile, updateNewPostTextAC} from '../../../redux/profile-reducer';
+import {addPostAC, InitialProfileType, updateNewPostTextAC} from '../../../redux/profile-reducer';
 import {connect} from 'react-redux';
 import {Profile} from './Profile';
 import {Dispatch} from 'redux';
-import {AppStateType} from '../../../redux/redux-store';
+import {ActionsTypes, AppStateType} from '../../../redux/redux-store';
 
 type MapStatePropsType = {
-    profilePage: IInitialProfile
+    profilePage: InitialProfileType
 }
 
 type MapDispatchPropsType = {

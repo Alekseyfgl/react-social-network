@@ -1,6 +1,5 @@
 import {FormEvent} from 'react';
-import {addPostAC, updateNewPostTextAC} from './profile-reducer';
-import {sendMessageCreator, updateNewMessageBodyCreator} from './dialogs-reducer';
+import {ActionsTypes} from './redux-store';
 
 
 export interface IStore {
@@ -36,9 +35,6 @@ interface IProfile {
     posts: IPostState[];
 }
 
-// export interface IProfilePageState {
-//     elementsPage: IInitialProfile
-// }
 
 interface IMassagePageState {
     newMessageBody: string
@@ -53,7 +49,7 @@ export interface IState {
     friendInfo: IUserState
 }
 
-export interface IUserState {
+interface IUserState {
     id: number
     userName: string
     age: number
@@ -76,8 +72,4 @@ interface IMessagesInChatState {
     text: string
 }
 
-export type ActionsTypes =
-    ReturnType<typeof addPostAC>
-    | ReturnType<typeof sendMessageCreator>
-    | ReturnType<typeof updateNewPostTextAC>
-    | ReturnType<typeof updateNewMessageBodyCreator>
+
