@@ -10,7 +10,7 @@ import {IStore,} from '../../redux/state.interface';
 import {FC} from 'react';
 import {ProfileContainer} from './Profile/ProfileContainer';
 import {MessagesContainer} from './Messages/MessagesCointainer';
-import {Users} from './Users/Users';
+import {UsersContainer} from './Users/UsersContainer';
 
 interface IMainProps {
     store: IStore
@@ -28,7 +28,7 @@ export const Main: FC<IMainProps> = (props) => {
     };
 
     const renderHandlerUsers = () => {
-        return <Users/>
+        return <UsersContainer/>
     }
 
     return (
