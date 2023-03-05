@@ -3,12 +3,15 @@ import {ActionsTypes} from './redux-store';
 
 export interface InitialUserState {
     id: number
-    userName: string
+    name: string
     age: number
     country: string
     city: string
     phone: string
-    img: string
+    photos: {
+        small: string | null
+        large: string | null
+    }
     nickName: string
     email: string
     birthday: string
@@ -19,12 +22,15 @@ export interface InitialUserState {
 
 const initialState: InitialUserState = {
     id: 1,
-    userName: 'Alex Lorem',
+    name: 'Alex Lorem',
     age: 99,
     country: 'Belarus',
     city: 'Minsk',
     phone: '+375558887755',
-    img: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHVzZXJ8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
+    photos: {
+        small: 'https://images.unsplash.com/flagged/photo-1573740144655-bbb6e88fb18a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8dXNlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+        large: null
+    },
     nickName: 'Alex_qqq',
     email: 'qweewfsdaf@gmail.cpm',
     birthday: '10 April 1997',

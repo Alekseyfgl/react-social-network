@@ -3,6 +3,8 @@ import {MessageAuthor} from './MessageAuthor/MessageAuthor';
 import {MessageFriend} from './MessageFriend/MessageFriend';
 import {SubmitBtn} from '../../../../kit/SubmitBtn/SubmitBtn';
 import React, {ChangeEvent, FC, RefObject} from 'react';
+import userMock from '../../../../assets/img/user-mock.png'
+
 
 import {IMessagesInChatState} from '../../../../redux/dialogs-reducer';
 import {InitialUserState} from '../../../../redux/user-info-reducer';
@@ -24,8 +26,8 @@ export const Chat: FC<ChatPropsType> = (props) => {
     const messageComponents: JSX.Element[] = messagesInChat.map((m: IMessagesInChatState) => {
 
         return userInfo.id === m.userId ?
-            (<MessageAuthor key={m.id} userId={m.id} text={m.text} date={m.date} authorImg={userInfo.img}/>) :
-            (<MessageFriend key={m.id} userId={m.id} text={m.text} date={m.date} friendImg={friendInfo.img}/>)
+            (<MessageAuthor key={m.id} userId={m.id} text={m.text} date={m.date} authorImg={userInfo.photos.small ? userInfo.photos.small : userMock}/>) :
+            (<MessageFriend key={m.id} userId={m.id} text={m.text} date={m.date} friendImg={userInfo.photos.small ? userInfo.photos.small : userMock}/>)
     })
 
 
@@ -44,12 +46,12 @@ export const Chat: FC<ChatPropsType> = (props) => {
             <div className={s.user}>
                 <div className={'wr_img'}>
                     <img
-                        src={friendInfo.img}
+                        src={friendInfo.photos.small ? friendInfo.photos.small : userMock}
                         alt="friend"
                     />
                 </div>
                 <div className={s.wr_user}>
-                    <p className="name">{friendInfo.userName}</p>
+                    <p className="name">{friendInfo.name}</p>
                     <div className={s.status}>
                         <span className={s.text}>{friendInfo.statusOnline ? 'Active now' : 'Inactive now'}</span>
                         <span className={s.indicator}></span>
