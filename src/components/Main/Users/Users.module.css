@@ -1,4 +1,17 @@
 
 .users {
+    border: 1px solid #000;
+}
 
+.selected_page {
+    font-weight: 800;
+}
+
+.page {
+    display: inline-block;
+    width: 18px;
+    background-color: #b4b4b4;
+    margin: 0 10px;
+    cursor: pointer;
+    text-align: center;
 }

@@ -6,13 +6,13 @@ import axios from 'axios';
 import userMock from '../../../assets/img/user-mock.png'
 
 export const Users: FC<UsersPropsType> = (props) => {
-    const {users, follow, unfollowAC, setUsersAC} = props
+    const {users, follow, unfollow, setUsers} = props
 
 
     if (users.length === 0) {
         axios.get('https://social-network.samuraijs.com/api/1.0/users')
             .then(r => {
-                setUsersAC(r.data.items)
+                setUsers(r.data.items)
             })
 
     }
@@ -21,7 +21,7 @@ export const Users: FC<UsersPropsType> = (props) => {
     const usersElements: JSX.Element[] = users.map((u: IUserList) => {
 
         const btnsFollowElements: JSX.Element = u.followed ?
-            <button onClick={() => unfollowAC(u.id)}>unfollow</button> :
+            <button onClick={() => unfollow(u.id)}>unfollow</button> :
             <button onClick={() => follow(u.id)}>follow</button>
 
 

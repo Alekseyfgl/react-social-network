@@ -3,7 +3,8 @@ import {addPostAC, profileReducer, updateNewPostTextAC} from './profile-reducer'
 import {dialogsReducer, sendMessageCreator, updateNewMessageBodyCreator} from './dialogs-reducer';
 import {userInfoReducer} from './user-info-reducer';
 import {friendInfoReducer} from './friend-info-reducer';
-import {followAC, setUsersAC, unfollowAC, usersReducer} from './users-reducer';
+import {followAC, setCurrentPageAC, setTotalUsersCountAC, setUsersAC, unfollowAC, usersReducer} from './users-reducer';
+import {composeWithDevTools} from 'redux-devtools-extension';
 
 export type AppStateType = ReturnType<typeof rootReducer>
 
@@ -17,7 +18,7 @@ const rootReducer = combineReducers(
     }
 )
 
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer, composeWithDevTools());
 
 export type ActionsTypes =
     ReturnType<typeof addPostAC>
@@ -27,6 +28,8 @@ export type ActionsTypes =
     | ReturnType<typeof followAC>
     | ReturnType<typeof unfollowAC>
     | ReturnType<typeof setUsersAC>
+    | ReturnType<typeof setCurrentPageAC>
+    | ReturnType<typeof setTotalUsersCountAC>
 
 // @ts-ignore
 window.store = store
